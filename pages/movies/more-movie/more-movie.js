@@ -30,8 +30,7 @@ Page({
   ,
   onShow: function () {
     wx.setNavigationBarTitle({title: this.data.categoryTitle});
-  }
-  ,
+  },
 
   /**
    * 加载数据
@@ -60,7 +59,6 @@ Page({
     var origialMovies = this.data.movies;
     if (!this.data.moviesIsEmpty) {
       origialMovies = origialMovies.concat(movies);
-      console.log(origialMovies);
     } else {
       origialMovies = movies;
       this.data.moviesIsEmpty = false;
@@ -69,10 +67,21 @@ Page({
     this.setData({
       movies: origialMovies
     });
+    wx.stopPullDownRefresh();
+    wx.hideNavigationBarLoading();
   }
   ,
-  onPullDownRefresh: function () {
-    console.log("refreesh");
+  /**
+   * 滚动到底刷新
+   */
+  onReachBottom: function () {
+    wx.showNavigationBarLoading();
+    util.http(this.data.requestUrl + "?start=" + this.data.start + "&count=20", this.processData);
+  },
+  onPullDownRefresh: function (event) {
+    wx.showNavigationBarLoading();
+    this.data.moviesIsEmpty = true;
+    this.data.start = 0;
     util.http(this.data.requestUrl + "?start=" + this.data.start + "&count=20", this.processData);
   }
 })
