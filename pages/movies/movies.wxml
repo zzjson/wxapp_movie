@@ -1,0 +1,9 @@
+<import src="movie-list/movie-list-template.wxml"/>
+<view class="container">
+  <view class="movies-template">
+    <template is="movieListTemplate" data="{{...Hot}}"></template>
+    <template is="movieListTemplate" data="{{...Coming}}"></template>
+    <template is="movieListTemplate" data="{{...Top}}"></template>
+  </view>
+
+</view>

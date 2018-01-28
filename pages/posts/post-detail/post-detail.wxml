@@ -1,0 +1,23 @@
+<view class="container" xmlns:wx="http://www.w3.org/1999/XSL/Transform">
+  <image class="head-image" src="{{playingMusic ? postData.music.coverImg: postData.headImgSrc}}"/>
+  <image catchtap="onMusicTap" class="audio"
+         src="{{ !playingMusic ? '/images/music/music-start.png' : '/images/music/music-stop.png'}}"/>
+  <view class="author-date">
+    <image class="avatar" src="{{postData.avatar}}"/>
+    <text class="author">{{postData.author}}</text>
+    <text class="const-text">发表于</text>
+    <text class="date">{{postData.date}}</text>
+  </view>
+  <view>
+    <text class="title">{{date.title}}</text>
+  </view>
+  <view class="tool">
+    <view class="circle-img">
+      <image wx:if="{{posted_collected}}" catchtap="onCollectTap" src="/images/icon/collection.png"></image>
+      <image catchtap="onCollectTap" wx:else src="/images/icon/collection-anti.png"></image>
+      <image class="share-img" catchtap="onShareTap" src="/images/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+  </view>
+  <text class="detail">{{postData.detail}}</text>
+</view>

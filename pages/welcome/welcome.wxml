@@ -1,0 +1,8 @@
+<view class='container'>
+  <image class='img' src='/images/5.png'></image>
+  <text class='user-name'>Hello ,zzy</text>
+  <view class='moto-container' bindtap='onTap'>
+  <!--只有被text包围的文字才可以被长按选中  -->
+    <text class='moto'>开启小程序之旅行</text>
+  </view>
+</view> 
