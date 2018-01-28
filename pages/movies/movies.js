@@ -47,11 +47,13 @@ Page({
     })
   },
   /**
-   * 更多电影
+   * 更多电影点击事件
    */
   onMoreMovie: function (event) {
-    var categoryTitle = event.currentTarget.data();
-    console.log(categoryTitle);
+    var categoryTitle = event.currentTarget.dataset.categorytitle;
+    wx.navigateTo({
+      url: 'more-movie/more-movie?categoryTitle=' + categoryTitle
+    });
   },
   /**
    * 加载数据
@@ -75,7 +77,6 @@ Page({
         starsArray: util.convertToStarsArray(subject.rating.stars),
         rating: subject.rating.stars,
       };
-      console.log(temp)
       movies.push(temp);
     }
     var readyData = {};
