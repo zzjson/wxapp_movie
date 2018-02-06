@@ -3,9 +3,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
@@ -64,12 +62,12 @@ Page({
   },
 
   onTap: function () {
-  //  wx.navigateTo({
-  //    url: '../posts/post',
-  //  });
-  //  这种方式没有返回了
-   wx.navigateTo({
-     url: '../posts/post',
-   })
+    //  wx.navigateTo({
+    //    url: '../posts/post',
+    //  });
+    //  这种方式没有返回了
+    wx.navigateTo({
+      url: '../posts/post',
+    })
   }
 })

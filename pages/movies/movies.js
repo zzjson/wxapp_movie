@@ -8,7 +8,10 @@ Page({
   data: {
     Hot: {},
     Coming: {},
-    Top: {}
+    Top: {},
+    searchPanelShow: false,
+    containerPanelShow: true,
+    searchResult: {}
   },
 
   /**
@@ -55,6 +58,12 @@ Page({
       url: 'more-movie/more-movie?categoryTitle=' + categoryTitle
     });
   },
+  onMovieTap: function (event) {
+    var movieId = event.currentTarget.dataset.movieId;
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?movieId='+movieId
+    });
+  },
   /**
    * 加载数据
    * @param data
@@ -85,7 +94,27 @@ Page({
       title: movieStockTitle
     };
     this.setData(readyData);
+  },
+  onSearchFocus: function (event) {
+    this.setData({
+      containerPanelShow: false,
+      searchPanelShow: true
+    })
+  },
+  onCancelImgTap: function () {
+    this.setData({
+      containerPanelShow: true,
+      searchPanelShow: false
+    })
+  },
+  onSearchConfirm: function (event) {
+    var searchKey = event.detail.value;
+    var searchUrl = app.globalData.g_douBan.g_douBanBase + app.globalData.g_douBan.g_douBanSearch + searchKey;
+    this.getMovieListData(searchUrl, "searchResult", "");
+  },
+  onBindBlur: function (event) {
+
   }
 
 
-})
+});

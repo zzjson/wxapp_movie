@@ -83,6 +83,12 @@ Page({
     this.data.moviesIsEmpty = true;
     this.data.start = 0;
     util.http(this.data.requestUrl + "?start=" + this.data.start + "&count=20", this.processData);
-  }
+  },
+  onMovieTap: function (event) {
+    var movieId = event.currentTarget.dataset.movieId;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?movieId=' + movieId
+    })
+  },
 })
 ;

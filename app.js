@@ -3,12 +3,13 @@ App({
     g_isplayingMusic: false,
     g_currentMusicPostId: null,
     g_douBan: {
-      // g_douBanBase: "https://douban.uieee.com",
+       //g_douBanBase: "https://douban.uieee.com",
       // g_douBanBase: "https://api.douban.com",
       g_douBanBase: "http://t.yushu.im",
       g_douBanHot: "/v2/movie/in_theaters",
       g_douBanComingSoon: "/v2/movie/coming_soon",
       g_douBanTop: "/v2/movie/top250",
+      g_douBanSearch: "/v2/movie/search?q=",
     }
 
 
